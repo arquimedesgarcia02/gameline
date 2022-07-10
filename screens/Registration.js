@@ -4,7 +4,7 @@ import styles from "../styles/Styles";
 
 const RegistrationScreen =({navigation, route}) =>{
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             <Text style={styles.title}> Cadastre-se </Text>
 
             
@@ -51,15 +51,16 @@ const RegistrationScreen =({navigation, route}) =>{
             <View style={styles.rowButtons}>
                 <Button
                     title='Cancelar'
+                    onPress={() => navigation.navigate('Login')}
                 />
                 
                 <Button
                     title='Confirmar'
-
+                    onPress={() => navigation.navigate('Home')}
                 />
             </View>
 
-        </ScrollView>
+        </View>
        
     )
 }

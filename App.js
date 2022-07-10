@@ -17,6 +17,16 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name='Login'
+          component={LoginScreen}
+          options={{title: null}}
+        />
+        <Stack.Screen
+          name='Registration'
+          component={RegistrationScreen}
+          options={{title: null}}
+        />
+        <Stack.Screen
           name='Home'
           component={HomeScreen}
           options={{title: null}}

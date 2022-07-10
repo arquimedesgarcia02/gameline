@@ -1,4 +1,4 @@
-import {React} from 'react';
+import React from 'react';
 import {Text,View,TextInput, Button} from 'react-native';
 import styles from '../styles/Styles';
 
@@ -17,13 +17,19 @@ const LoginScreen =({navigation}) =>{
              placeholder = 'Password'
              secureTextEntry = {true}
             />
-            <Button title="Confirmar"/>
+            <Button 
+                title="Confirmar"
+                onPress={() => navigation.navigate('Home')}
+            />
 
             <View style={styles.footer}>
                 <Text>Ainda não tem uma conta?</Text>
-                <Button title="Cadastrar-se"
-                onPress={() => navigation.navigate('cadastre')}                
+                
+                <Button 
+                    title="Cadastrar-se"
+                    onPress={() => navigation.navigate('Registration')}                
                 />
+
             </View>
 
         </View>
