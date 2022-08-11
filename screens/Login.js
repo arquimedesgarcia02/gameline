@@ -35,7 +35,7 @@ const LoginScreen =({navigation}) =>{
             />
 
             <View style={styles.footer}>
-                <Text style={{textAlign: 'center', fontSize: 20,}}>AINDA NÃO TEM UMA CONTA?</Text>
+                <Text style={styles.footerText}>AINDA NÃO TEM UMA CONTA?</Text>
                 
                 <ButtonLogin 
                     title="CADASTRAR-SE"

@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
+      flex: 1,
       justifyContent: 'flex-start',
       paddingTop: Constants.statusBarHeight,
       backgroundColor: '#fff',
@@ -64,17 +65,24 @@ const styles = StyleSheet.create({
     },
     input: {
         width: '85%',
-        height: 50,
+        height: 60,
         margin: 12,
         borderWidth: 1,
         padding: 10,
         backgroundColor: '#D9D9D9',
         borderColor: '#D9D9D9',
         textAlign: 'center',
+        fontSize: 16,
+        fontWeight: 'bold',
         borderRadius: 10,
     },
     footer: {
-        marginTop: '25%',
+        marginTop: '70%',
+    },
+    footerText: {
+      textAlign: 'center', 
+      fontSize: 20, 
+      margin: 5,
     },
     text: {
         alignItems: 'center',
@@ -89,7 +97,7 @@ const styles = StyleSheet.create({
     login:{
       alignItems: 'center',
       padding: 8,
-      paddingTop: '30%',
+      paddingTop: '20%',
       marginTop: Constants.statusBarHeight,
     },
     logo:{
@@ -122,6 +130,12 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       letterSpacing: 0.25,
       color: 'white',
+    },
+    registration:{
+      display: 'flex',
+      padding: 10,
+      alignItems: 'center',
+      margin: 10,
     },
   
 });
