@@ -70,12 +70,28 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     footer: {
-        marginTop: 50,
+        marginTop: '25%',
     },
     text: {
         alignItems: 'center',
         justifyContent: 'center',
         margin: 2,
+    },
+    textLogin: {
+      fontSize: 40,
+      fontWeight: 'bold',
+
+    },
+    login:{
+      alignItems: 'center',
+      padding: 8,
+      marginTop: Constants.statusBarHeight,
+    },
+    logo:{
+      width: '25%',
+      height: '200%',
+      marginTop: 50,
+      marginBottom: 50,
     },
     circle:{
         backgroundColor: '#d5d5d5',
