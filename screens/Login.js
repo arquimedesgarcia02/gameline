@@ -1,5 +1,7 @@
 import React from 'react';
-import {Text,View,TextInput, Button, Image} from 'react-native';
+import {Text,View,TextInput, Image} from 'react-native';
+import ButtonLogin from '../styled_components/ButtonLogin';
+import Button from '../styled_components/ButtonLogin';
 import styles from '../styles/Styles';
 
 const LoginScreen =({navigation}) =>{
@@ -19,25 +21,24 @@ const LoginScreen =({navigation}) =>{
 
             <TextInput
              style={styles.input}
-             placeholder = 'Username'
+             placeholder = 'DIGITE SEU NOME DE USUARIO'
             />
             <TextInput
              style={styles.input}
-             placeholder = 'Password'
+             placeholder = 'DIGITE SUA SENHA'
              secureTextEntry = {true}
             />
-            <Button 
-                title="Confirmar"
+            <ButtonLogin
+                title="CONFIRMAR"
                 color={'#10D07B'}
                 onPress={() => navigation.navigate('Home')}
             />
 
             <View style={styles.footer}>
-                <Text>Ainda não tem uma conta?</Text>
+                <Text style={{textAlign: 'center', fontSize: 20,}}>AINDA NÃO TEM UMA CONTA?</Text>
                 
-                <Button 
-                    title="Cadastrar-se"
-                    color={'#10D07B'}
+                <ButtonLogin 
+                    title="CADASTRAR-SE"
                     onPress={() => navigation.navigate('Registration')}                
                 />
 

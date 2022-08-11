@@ -63,11 +63,15 @@ const styles = StyleSheet.create({
       marginBottom: Constants.statusBarHeight,
     },
     input: {
-        width: 250,
-        height: 40,
+        width: '85%',
+        height: 50,
         margin: 12,
         borderWidth: 1,
         padding: 10,
+        backgroundColor: '#D9D9D9',
+        borderColor: '#D9D9D9',
+        textAlign: 'center',
+        borderRadius: 10,
     },
     footer: {
         marginTop: '25%',
@@ -85,6 +89,7 @@ const styles = StyleSheet.create({
     login:{
       alignItems: 'center',
       padding: 8,
+      paddingTop: '30%',
       marginTop: Constants.statusBarHeight,
     },
     logo:{
@@ -101,6 +106,22 @@ const styles = StyleSheet.create({
         padding: 14,
         marginRight: 10,
 
+    },
+    buttonLogin: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 12,
+      paddingHorizontal: 120,
+      borderRadius: 10,
+      elevation: 3,
+      backgroundColor: '#14D97D',
+    },
+    textButttonLogin: {
+      fontSize: 16,
+      lineHeight: 21,
+      fontWeight: 'bold',
+      letterSpacing: 0.25,
+      color: 'white',
     },
   
 });
