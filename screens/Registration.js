@@ -1,6 +1,7 @@
 import * as React from "react" 
 import {Text, TextInput, View, Image} from 'react-native';
 import Button from "../styled_components/ButtonLogin"
+import { Camera, CameraType } from 'expo-camera'
 import styles from "../styles/Styles";
 
 const RegistrationScreen =({navigation, route}) =>{

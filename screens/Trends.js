@@ -1,46 +1,4 @@
-import {React} from 'react';
-import { Text, View, Button, ScrollView, FlatList } from 'react-native';
-import styles from '../styles/Styles';
-
-// or any pure javascript modules available in npm
-import { Card } from 'react-native-paper';
-
-// constante CATEGORIAS(Array) de items da lista:
-const CATEGORIAS = [
-    {
-        id: '001',
-        title: 'Categoria',
-    },
-    {
-        id: '002',
-        title: 'Categoria',
-    },
-    {
-        id: '003',
-        title: 'Categoria',
-    },
-    {
-        id: '004',
-        title: 'Categoria',
-    },
-    {
-        id: '005',
-        title: 'Categoria',
-    },
-    {
-        id: '006',
-        title: 'Categoria',
-    },
-]
-
-// Componente Item:
-const Item = ({ title }) => (
-    <Card style={styles.cardCat}>
-        <Text>{title}</Text>
-    </Card>
-);
-
-const HomeScreen =({navigation}) =>{
+const TrendsScreen =({navigation}) =>{
     // Função que renderiza items na lista:
     const renderItem = ({ item }) => (
         <Item title={item.title} />
@@ -57,12 +15,11 @@ const HomeScreen =({navigation}) =>{
             
                 <View style={styles.rowButtons}>
                     <Button
-                        title="Em Alta"
+                    title="Em Alta"
                     />
         
                     <Button
-                        title="Ao Vivo"
-                        onPress={nav}
+                    title="Ao Vivo"
                     />
         
                 </View>
@@ -102,4 +59,4 @@ const HomeScreen =({navigation}) =>{
     )
 }
 
-export default HomeScreen;
+export default TrendsScreen;

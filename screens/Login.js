@@ -39,7 +39,7 @@ const LoginScreen =({navigation}) =>{
                 
                 <ButtonLogin 
                     title="CADASTRAR-SE"
-                    onPress={() => navigation.navigate('Registration')}                
+                    onPress={() => navigation.navigate('Registration')}            
                 />
 
             </View>

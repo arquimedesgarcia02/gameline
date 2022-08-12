@@ -8,6 +8,7 @@ import HeaderComponent from './screens/Header';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LiveScreen from './screens/Live';
 
 
 const Stack = createNativeStackNavigator();
@@ -33,6 +34,11 @@ export default function App() {
         <Stack.Screen
           name='Home'
           component={HomeScreen}
+          options={{title: null}}
+        />
+        <Stack.Screen
+          name='Live'
+          component={LiveScreen}
           options={{title: null}}
         />
 
