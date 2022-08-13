@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     },
     usertext: {
       alignItems: 'center',
+      justifyContent: 'center',
       marginLeft: 120,
   
     },
@@ -42,12 +43,10 @@ const styles = StyleSheet.create({
       width: 180,
       height: 142,
       margin: 5,
-      paddingTop: 10,
       borderRadius: 15,
   
     },
     cardPub:{
-      marginTop: 0, 
       width: '100%', 
       height:100,
       backgroundColor: '#e5e5e5',
@@ -142,6 +141,12 @@ const styles = StyleSheet.create({
     header:{
       flexDirection: 'row',
       justifyContent: 'space-between',
+      alignItems: 'flex-start', 
+    },
+    headerRow:{
+      flexDirection: 'row',
+      justifyContent: 'center',
+      marginLeft: '14%',
     },
   
 });
