@@ -4,11 +4,12 @@ import styles from './styles/Styles';
 import HomeScreen from './screens/Home';
 import RegistrationScreen from './screens/Registration';
 import LoginScreen from './screens/Login';
-import HeaderComponent from './screens/Header';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LiveScreen from './screens/Live';
+import TrendsScreen from './screens/Trends';
+import HeaderComponent from './styled_components/Header';
 
 
 const Stack = createNativeStackNavigator();
@@ -16,30 +17,32 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator 
-        screenOptions={{
-          headerShown: false,
-        }}>
+      <Stack.Navigator>
           
         <Stack.Screen
           name='Login'
           component={LoginScreen}
-          options={{title: null}}
+          options={{title: null, headerShown: false}}
         />
         <Stack.Screen
           name='Registration'
           component={RegistrationScreen}
-          options={{title: null}}
+          options={{title: null, headerShown: false}}
         />
         <Stack.Screen
           name='Home'
           component={HomeScreen}
-          options={{title: null}}
+          options={{title: null, headerTitle: () => <HeaderComponent/>, headerBackVisible: false}}
         />
         <Stack.Screen
           name='Live'
           component={LiveScreen}
-          options={{title: null}}
+          options={{title: null, headerTitle: () => <HeaderComponent/>, headerBackVisible: false}}
+        />
+        <Stack.Screen
+          name='Trends'
+          component={TrendsScreen}
+          options={{title: null, headerTitle: () => <HeaderComponent/>, headerBackVisible: false}}
         />
 
       </Stack.Navigator>

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Constants from 'expo-constants';
 import { StyleSheet } from 'react-native';
 
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
     },
     usertext: {
       alignItems: 'center',
+      marginLeft: 120,
   
     },
     card: {
@@ -136,6 +138,10 @@ const styles = StyleSheet.create({
       padding: 10,
       alignItems: 'center',
       margin: 10,
+    },
+    header:{
+      flexDirection: 'row',
+      justifyContent: 'space-between',
     },
   
 });

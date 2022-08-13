@@ -1,4 +1,4 @@
-import {React} from 'react';
+import * as React from 'react';
 import { Text, View, Button, ScrollView, FlatList } from 'react-native';
 import styles from '../styles/Styles';
 
@@ -58,11 +58,12 @@ const HomeScreen =({navigation}) =>{
                 <View style={styles.rowButtons}>
                     <Button
                         title="Em Alta"
+                        onPress={() => navigation.navigate('Trends')}
                     />
         
                     <Button
                         title="Ao Vivo"
-                        onPress={nav}
+                        onPress={() => navigation.navigate('Live')}
                     />
         
                 </View>
