@@ -175,12 +175,57 @@ const styles = StyleSheet.create({
       marginLeft: '14%',
     },
     userModal:{
-      height: '70%',
+      height: '75%',
       width: '100%',
       marginBottom: -20,
       marginTop: 'auto',
+      paddingHorizontal: 10,
+      paddingTop: 10,
+      borderTopLeftRadius: 15,
+      borderTopRightRadius: 15,
       backgroundColor: '#ffffff'
       
+    },
+    userLabel:{
+      alignItems: 'flex-start',
+      justifyContent: 'space-between',
+      flexDirection:'row',
+      paddingVertical: 16,
+      paddingHorizontal: 16,
+      borderRadius: 14,
+      elevation: 3,
+      margin: 5,
+      backgroundColor: '#14D97D',
+    },
+    userLabelText:{
+      color: '#ffffff',
+      fontSize: 20,
+      fontWeight: '700',
+    },
+    userLabelTextBlack:{
+      color: '#000',
+      fontSize: 20,
+      fontWeight: '700',
+    },
+    buttonClose:{
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 16,
+      paddingHorizontal: 16,
+      borderRadius: 14,
+      elevation: 3,
+      margin: 5,
+      backgroundColor: '#DEDEDE',
+    },
+    buttonExit:{
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 16,
+      paddingHorizontal: 16,
+      borderRadius: 14,
+      elevation: 3,
+      margin: 5,
+      backgroundColor: '#D90000',
     },
   
 });
