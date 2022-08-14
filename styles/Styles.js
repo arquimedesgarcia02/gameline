@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'flex-start',
-      paddingTop: Constants.statusBarHeight,
       backgroundColor: '#fff',
       padding: 8,
     },
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     footer: {
-        marginTop: '70%',
+        marginTop: '50%',
     },
     footerText: {
       textAlign: 'center', 
@@ -99,11 +98,10 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       padding: 8,
       paddingTop: '20%',
-      marginTop: Constants.statusBarHeight,
     },
     logo:{
       width: '25%',
-      height: '200%',
+      height: '100%',
       marginTop: 50,
       marginBottom: 50,
     },
@@ -121,9 +119,29 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       paddingVertical: 12,
       paddingHorizontal: 120,
-      borderRadius: 10,
+      borderRadius: 20,
       elevation: 3,
       backgroundColor: '#14D97D',
+    },
+    buttonReg: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 12,
+      paddingHorizontal: 20,
+      borderRadius: 10,
+      elevation: 3,
+      marginHorizontal: 12,
+      backgroundColor: '#14D97D',
+    },
+    buttonRed:{
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingVertical: 12,
+      paddingHorizontal: 20,
+      borderRadius: 10,
+      elevation: 3,
+      marginHorizontal: 12,
+      backgroundColor: '#D90000',
     },
     textButttonLogin: {
       fontSize: 16,
@@ -132,21 +150,37 @@ const styles = StyleSheet.create({
       letterSpacing: 0.25,
       color: 'white',
     },
+    textButttonReg: {
+      fontSize: 16,
+      lineHeight: 21,
+      fontWeight: 'bold',
+      letterSpacing: 0.25,
+      color: 'white',
+    },
     registration:{
       display: 'flex',
-      padding: 10,
+      paddingTop: Constants.statusBarHeight,
       alignItems: 'center',
-      margin: 10,
     },
     header:{
       flexDirection: 'row',
       justifyContent: 'space-between',
-      alignItems: 'flex-start', 
+      alignItems: 'flex-start',
+      
     },
     headerRow:{
       flexDirection: 'row',
       justifyContent: 'center',
+      paddingTop: 10,
       marginLeft: '14%',
+    },
+    userModal:{
+      height: '70%',
+      width: '100%',
+      marginBottom: -20,
+      marginTop: 'auto',
+      backgroundColor: '#ffffff'
+      
     },
   
 });

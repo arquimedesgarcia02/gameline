@@ -48,7 +48,6 @@ const HomeScreen =({navigation}) =>{
 
     return (
         <View style={styles.container}>
-  
             <ScrollView showsVerticalScrollIndicator={false} overScrollMode='never'>
                 <Card style={styles.cardPub}>
                     <Text style={{textAlign: "center"}}>PUBLICIDADE</Text>
@@ -89,16 +88,16 @@ const HomeScreen =({navigation}) =>{
                     </View>
         
                     <FlatList
-                    data={CATEGORIAS}
-                    renderItem={renderItem}
-                    keyExtractor={item => item.id}
-                    numColumns={2}
+                        data={CATEGORIAS}
+                        renderItem={renderItem}
+                        keyExtractor={item => item.id}
+                        numColumns={2}
                     />
         
                 </View>
     
             </ScrollView>
-  
+
       </View>
     )
 }

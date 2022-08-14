@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Text,View,TextInput, Image} from 'react-native';
-import ButtonLogin from '../styled_components/ButtonLogin';
-import Button from '../styled_components/ButtonLogin';
+import ButtonLogin from '../custom_components/ButtonLogin';
 import styles from '../styles/Styles';
 
 const LoginScreen =({navigation}) =>{

@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LiveScreen from './screens/Live';
 import TrendsScreen from './screens/Trends';
-import HeaderComponent from './styled_components/Header';
+import HeaderComponent from './custom_components/Header';
 
 
 const Stack = createNativeStackNavigator();
