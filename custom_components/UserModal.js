@@ -139,6 +139,7 @@ const UserModal = () =>{
                         style={styles.buttonReg}
                         textStyle={styles.userLabelText}
                         title={"SACAR AGORA"}
+                        onPress={()=> alert('Saque realizado com sucesso!')}
                     />
 
                     <UserModalOptions
@@ -171,6 +172,7 @@ const UserModal = () =>{
                         title={"ENCERRAR CONTA"}
                         style={styles.buttonRed}
                         textStyle={styles.userLabelText}
+                        onPress={()=>alert('Sua conta foi enecerrada com exito!')}
                     />
                     
                     <UserModalOptions
