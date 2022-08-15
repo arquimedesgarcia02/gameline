@@ -18,6 +18,14 @@ const UserModal = () =>{
         setDepositVisible(!depositVisible);
     };
 
+    const toggleWithdraw = () => {
+        setWithdrawVisible(!withdrawVisible);
+    };
+
+    const toggleAccount = () => {
+        setAccountVisible(!accountVisible);
+    };
+
     return (
         <View>
             <Pressable onPress={()=> toggleModal()} style={styles.headerRow}>
@@ -50,12 +58,12 @@ const UserModal = () =>{
                     <UserModalButton
                         title={"SACAR"}
                         icon={"https://img.icons8.com/material-outlined/48/FFFFFF/money--v1.png"}
-                        onPress={() => alert('indo pra tela de saque')}
+                        onPress={() => toggleWithdraw()}
                     />
                     <UserModalButton
                         title={"MINHA CONTA"}
                         icon={"https://img.icons8.com/material-outlined/48/FFFFFF/engineering.png"}
-                        onPress={() => alert('indo pra tela da sua conta')}
+                        onPress={() => toggleAccount()}
                     />
 
                     <View style={styles.rowButtons}>
@@ -95,7 +103,7 @@ const UserModal = () =>{
 
                     <UserModalOptions
                         textStyle={styles.userLabelText}
-                        style={styles.userLabel}
+                        style={styles.buttonReg}
                         onPress={() => alert('Deposito Confirmado!')}
                         title={"CONFRIMAR"}
                     />
@@ -108,7 +116,55 @@ const UserModal = () =>{
                     />
                 </View>
             </Modal>
+            
+            <Modal isVisible={withdrawVisible}>
+                <View style={styles.userModal}>
+                    <UserModalButton
+                        title={"SACAR"}
+                        icon={"https://img.icons8.com/material-outlined/48/FFFFFF/money--v1.png"}
+                    />
 
+                    <View style={{alignItems: 'center', marginBottom: '25%', marginTop: '5%'}}>
+                        <Text style={{fontSize: 16, fontWeight: '700'}}>O SAQUE É FEITO PARA SUA CONTA PIX JÁ REGISTRADA!</Text>
+                        
+                        <TextInput
+                            style={styles.input}
+                            placeholder = 'DIGITE O VALOR DO SAQUE'
+                        />
+
+                        <Text style={{fontSize: 16, fontWeight: '700'}}>O SAQUE DEVE SER MENOR QUE SEU SALDO ATUAL. SALDO: R$xx.xx</Text>
+                    </View>
+
+                    <UserModalOptions
+                        style={styles.buttonReg}
+                        textStyle={styles.userLabelText}
+                        title={"SACAR AGORA"}
+                    />
+
+                    <UserModalOptions
+                        style={styles.buttonClose}
+                        textStyle={styles.userLabelTextBlack}
+                        onPress={() => setWithdrawVisible(false)}
+                        title={"FECHAR"}
+                    />
+                </View>
+            </Modal>
+
+            <Modal isVisible={accountVisible}>
+                <View style={styles.userModal}>
+                    <UserModalButton
+                        title={"MINHA CONTA"}
+                        icon={"https://img.icons8.com/material-outlined/48/FFFFFF/engineering.png"}
+                    />
+                    
+                    <UserModalOptions
+                        style={styles.buttonClose}
+                        textStyle={styles.userLabelTextBlack}
+                        onPress={() => setAccountVisible(false)}
+                        title={"FECHAR"}
+                    />
+                </View>
+            </Modal>
 
         </View>
     );
