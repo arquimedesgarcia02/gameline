@@ -156,6 +156,22 @@ const UserModal = () =>{
                         title={"MINHA CONTA"}
                         icon={"https://img.icons8.com/material-outlined/48/FFFFFF/engineering.png"}
                     />
+
+                    <View style={styles.userLabel}>
+                        <Text style={styles.userLabelText}>Informações do Usuario</Text>
+                    </View>
+
+                    <View style={{alignItems: 'flex-start', justifyContent:'center', marginBottom:'35%',marginHorizontal: 15}}>
+                        <Text style={styles.userLabelTextBlack}>Usuario: nome do Usuario</Text>
+                        <Text style={styles.userLabelTextBlack}>Saldo: R$ 1.50</Text>
+                        <Text style={styles.userLabelTextBlack}>Chave Pix: chavepix@pix.com</Text>
+                    </View>
+
+                    <UserModalOptions
+                        title={"ENCERRAR CONTA"}
+                        style={styles.buttonRed}
+                        textStyle={styles.userLabelText}
+                    />
                     
                     <UserModalOptions
                         style={styles.buttonClose}
