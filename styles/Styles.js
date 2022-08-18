@@ -229,6 +229,16 @@ const styles = StyleSheet.create({
       marginTop: 15,
       backgroundColor: '#D90000',
     },
+    titleHorizontalComponent: {
+      textAlign: 'left',
+      fontWeight: 'bold',
+      fontSize: 22,
+    },
+    textHorizontalComponent:{
+      fontSize: 16,
+      color: '#000000',
+      marginLeft: 20,
+    }
   
 });
 
