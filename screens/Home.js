@@ -4,6 +4,7 @@ import styles from '../styles/Styles';
 
 // or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
+import { ContentHorizontal } from '../custom_components/ContentComponent';
 
 // constante CATEGORIAS(Array) de items da lista:
 const CATEGORIAS = [
@@ -43,7 +44,7 @@ const Item = ({ title }) => (
 const HomeScreen =({navigation}) =>{
     // Função que renderiza items na lista:
     const renderItem = ({ item }) => (
-        <Item title={item.title} />
+        <Item title={item.title}/>
     );
 
     return (
@@ -67,20 +68,10 @@ const HomeScreen =({navigation}) =>{
         
                 </View>
             
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} overScrollMode="never">
-                    <Card style={styles.card}>
-                        <Text>Card 1</Text>
-                    </Card>
-        
-                    <Card style={styles.card}>
-                        <Text>Card 2</Text>
-                    </Card>
-        
-                    <Card style={styles.card}>
-                        <Text>Card 3</Text>
-                    </Card>
-    
-                </ScrollView>
+                <ContentHorizontal
+                    title={"EM ALTA"}
+                    onPress={()=>{navigation.navigate('Aposta')}}
+                />
 
                 <View style={styles.categories}>
                     <View style={styles.label}>

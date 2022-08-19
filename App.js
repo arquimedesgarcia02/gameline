@@ -4,6 +4,7 @@ import styles from './styles/Styles';
 import HomeScreen from './screens/Home';
 import RegistrationScreen from './screens/Registration';
 import LoginScreen from './screens/Login';
+import BetScren from './screens/Bet'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -42,6 +43,11 @@ export default function App() {
         <Stack.Screen
           name='Trends'
           component={TrendsScreen}
+          options={{title: null, headerTitle: () => <HeaderComponent/>, headerBackVisible: false}}
+        />
+        <Stack.Screen
+          name='Aposta'
+          component={BetScren}
           options={{title: null, headerTitle: () => <HeaderComponent/>, headerBackVisible: false}}
         />
 

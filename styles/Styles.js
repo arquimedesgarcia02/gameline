@@ -231,15 +231,37 @@ const styles = StyleSheet.create({
     },
     titleHorizontalComponent: {
       textAlign: 'left',
-      fontWeight: 'bold',
+      fontWeight: '500',
       fontSize: 22,
     },
     textHorizontalComponent:{
       fontSize: 16,
       color: '#000000',
       marginLeft: 20,
-    }
-  
+    },
+    buttonGreen:{
+      padding: 8,
+      margin: 5,
+      borderRadius: 20,
+      backgroundColor: '#14D97D',
+    },
+    rowHorizontal:{
+      display: 'flex',
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: 8,
+    },
+    cardContent:{
+      backgroundColor: '#e5e5e5',
+      alignItems: "center",
+      width: 280,
+      height: 190,
+      paddingBottom: 10,
+      margin: 5,
+      borderRadius: 20,
+    },
+    
 });
 
 export default styles;
