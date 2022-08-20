@@ -3,7 +3,8 @@ import { View, Image } from 'react-native';
 import UserModal from "./UserModal";
 import styles from "../styles/Styles";
 
-const HeaderComponent = () =>{
+const HeaderComponent = (props) =>{
+    const {onPress} = props;
     return (
         <View style={styles.header}>
           <Image
@@ -11,7 +12,9 @@ const HeaderComponent = () =>{
             style={{width: 50, height: 54, marginTop: 15}}
           />
 
-          <UserModal/>
+          <UserModal
+            modalOnPress={onPress}
+          />
 
       </View>
     )

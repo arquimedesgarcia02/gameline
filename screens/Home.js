@@ -1,38 +1,13 @@
 import * as React from 'react';
-import { Text, View, Button, ScrollView, FlatList } from 'react-native';
+import { Text, View, ScrollView, FlatList} from 'react-native';
 import styles from '../styles/Styles';
-
-// or any pure javascript modules available in npm
 import { Card } from 'react-native-paper';
 import { ContentHorizontal } from '../custom_components/ContentComponent';
-
-// constante CATEGORIAS(Array) de items da lista:
-const CATEGORIAS = [
-    {
-        id: '001',
-        title: 'Categoria',
-    },
-    {
-        id: '002',
-        title: 'Categoria',
-    },
-    {
-        id: '003',
-        title: 'Categoria',
-    },
-    {
-        id: '004',
-        title: 'Categoria',
-    },
-    {
-        id: '005',
-        title: 'Categoria',
-    },
-    {
-        id: '006',
-        title: 'Categoria',
-    },
-]
+import { UserModalOptions } from '../custom_components/ModalButtons';
+import AdComponent from '../custom_components/AdComponent';
+import dataEmAlta from '../data/DataTrends';
+import { CATEGORIAS } from '../data/DataCategories';
+import HeaderComponent from '../custom_components/Header';
 
 // Componente Item:
 const Item = ({ title }) => (
@@ -41,7 +16,21 @@ const Item = ({ title }) => (
     </Card>
 );
 
+
 const HomeScreen =({navigation}) =>{
+    const [componentTitle, setComponentTitle] = React.useState('EVENTOS EM ALTA');
+    const [nav, setNav] = React.useState('Trends');
+
+    const buttonActionLive = () =>{
+        setComponentTitle('EVENTOS AO VIVO');
+        setNav('Live');
+    }
+
+    const buttonActionTrends = () =>{
+        setComponentTitle('EVENTOS EM ALTA');
+        setNav('Trends');
+    }
+    
     // Função que renderiza items na lista:
     const renderItem = ({ item }) => (
         <Item title={item.title}/>
@@ -49,33 +38,38 @@ const HomeScreen =({navigation}) =>{
 
     return (
         <View style={styles.container}>
+            <HeaderComponent onPress={() => navigation.navigate('Login')}/>
             <ScrollView showsVerticalScrollIndicator={false} overScrollMode='never'>
-                <Card style={styles.cardPub}>
-                    <Text style={{textAlign: "center"}}>PUBLICIDADE</Text>
-        
-                </Card>
+                <AdComponent/>
             
                 <View style={styles.rowButtons}>
-                    <Button
-                        title="Em Alta"
-                        onPress={() => navigation.navigate('Trends')}
+                    <UserModalOptions
+                        title={"EM ALTA"}
+                        style={styles.buttonReg}
+                        textStyle={styles.userLabelText}
+                        onPress={() => buttonActionTrends()}
                     />
         
-                    <Button
-                        title="Ao Vivo"
-                        onPress={() => navigation.navigate('Live')}
+                    <UserModalOptions
+                        title={"AO VIVO"}
+                        style={styles.buttonReg}
+                        textStyle={styles.userLabelText}
+                        onPress={() => buttonActionLive()}
                     />
         
                 </View>
             
                 <ContentHorizontal
-                    title={"EM ALTA"}
-                    onPress={()=>{navigation.navigate('Aposta')}}
+                    title={componentTitle}
+                    onPress={()=>{navigation.navigate('Aposta', {itemID: "01"})}
+                    }
+                    buttonOnPress={()=>{navigation.navigate(nav)}}
+                    data={dataEmAlta}
                 />
 
                 <View style={styles.categories}>
-                    <View style={styles.label}>
-                        <Text style={styles.title}> CATEGORIAS </Text>
+                    <View style={styles.buttonReg}>
+                        <Text style={styles.userLabelText}> CATEGORIAS </Text>
                     </View>
         
                     <FlatList
@@ -83,6 +77,7 @@ const HomeScreen =({navigation}) =>{
                         renderItem={renderItem}
                         keyExtractor={item => item.id}
                         numColumns={2}
+                        style={{marginTop: 25}}
                     />
         
                 </View>

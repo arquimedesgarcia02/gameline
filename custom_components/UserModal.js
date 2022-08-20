@@ -4,7 +4,9 @@ import Modal from "react-native-modal";
 import styles from "../styles/Styles";
 import { UserLabel, UserModalButton, UserModalOptions} from './ModalButtons';
 
-const UserModal = () =>{
+const UserModal = (props) =>{
+    const {modalOnPress} = props
+
     const [isModalVisible, setModalVisible] = useState(false);
     const [depositVisible, setDepositVisible] = useState(false);
     const [withdrawVisible, setWithdrawVisible] = useState(false);
@@ -77,7 +79,7 @@ const UserModal = () =>{
                         <UserModalOptions
                             style={styles.buttonExit}
                             textStyle={styles.userLabelText}
-                            onPress={() => alert('saindo da conta')}
+                            onPress={modalOnPress}
                             title={"SAIR"}
                         />
                     </View>

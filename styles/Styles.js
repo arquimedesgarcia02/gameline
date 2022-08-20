@@ -166,6 +166,8 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'flex-start',
+      marginTop: Constants.statusBarHeight,
+      marginBottom: 5,
       
     },
     headerRow:{
@@ -255,11 +257,19 @@ const styles = StyleSheet.create({
     cardContent:{
       backgroundColor: '#e5e5e5',
       alignItems: "center",
+      justifyContent: 'center',
       width: 280,
       height: 190,
       paddingBottom: 10,
       margin: 5,
       borderRadius: 20,
+    },
+    titleContent: {
+      marginTop: 8,
+      fontSize: 18,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      justifyContent: "center",
     },
     
 });
