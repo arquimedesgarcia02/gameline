@@ -44,7 +44,7 @@ export default function App() {
           options={{title: null, headerShown: false, headerBackVisible: false}}
         />
         <Stack.Screen
-          name='Aposta'
+          name='Bet'
           component={BetScren}
           options={{title: null, headerShown: false, headerBackVisible: false}}
         />

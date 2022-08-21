@@ -8,6 +8,7 @@ import AdComponent from '../custom_components/AdComponent';
 import dataEmAlta from '../data/DataTrends';
 import { CATEGORIAS } from '../data/DataCategories';
 import HeaderComponent from '../custom_components/Header';
+import dataAoVivo from '../data/DataLive';
 
 // Componente Item:
 const Item = ({ title }) => (
@@ -20,15 +21,18 @@ const Item = ({ title }) => (
 const HomeScreen =({navigation}) =>{
     const [componentTitle, setComponentTitle] = React.useState('EVENTOS EM ALTA');
     const [nav, setNav] = React.useState('Trends');
+    const [data, setData] = React.useState(dataEmAlta)
 
     const buttonActionLive = () =>{
         setComponentTitle('EVENTOS AO VIVO');
         setNav('Live');
+        setData(dataAoVivo)
     }
 
     const buttonActionTrends = () =>{
         setComponentTitle('EVENTOS EM ALTA');
         setNav('Trends');
+        setData(dataEmAlta)
     }
     
     // Função que renderiza items na lista:
@@ -61,10 +65,10 @@ const HomeScreen =({navigation}) =>{
             
                 <ContentHorizontal
                     title={componentTitle}
-                    onPress={()=>{navigation.navigate('Aposta', {itemID: "01"})}
+                    onPress={()=>{navigation.navigate('Bet', {itemId: "01"})}
                     }
                     buttonOnPress={()=>{navigation.navigate(nav)}}
-                    data={dataEmAlta}
+                    data={data}
                 />
 
                 <View style={styles.categories}>

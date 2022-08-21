@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { Card } from 'react-native-paper';
-import {UserModalOptions} from '../custom_components/ModalButtons'
-import ButtonLogin from '../custom_components/ButtonLogin';
+import { UserModalOptions } from '../custom_components/ModalButtons'
 import HeaderComponent from '../custom_components/Header';
 import styles from '../styles/Styles';
 
-export default function BetScreen({navigation, route}){
-    const { itemId } = route.params;
+export default function BetScreen({route, navigation}){
+    const {itemId} = route.params;
+    
     return(
         <View style={styles.container}>
             <HeaderComponent onPress={() => navigation.navigate('Login')}/>
@@ -20,6 +20,7 @@ export default function BetScreen({navigation, route}){
                 <Card style={styles.cardContent}>
                     <Text style={styles.title}>Titulo</Text>
                     <View style={styles.rowHorizontal}>
+                        <Text>{itemId}</Text>
                         <Text>time1</Text>
                         <Text> X </Text>
                         <Text>time2</Text>
@@ -38,8 +39,8 @@ export default function BetScreen({navigation, route}){
                 <UserModalOptions
                     title={"Voltar"}
                     style={styles.buttonClose}
-                    textStyle={styles.userLabelText}
-                    onPress={() => navigation.navigate('Home')}
+                    textStyle={styles.userLabelTextBlack}
+                    onPress={() => navigation.goBack()}
                 />
             </View>
 

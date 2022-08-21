@@ -4,7 +4,7 @@ import { ContentHorizontal } from '../custom_components/ContentComponent';
 import styles from '../styles/Styles';
 import AdComponent from '../custom_components/AdComponent';
 import { UserModalOptions } from '../custom_components/ModalButtons';
-import dataEmAlta from '../data/DataTrends';
+import dataAoVivo from '../data/DataLive';
 import HeaderComponent from '../custom_components/Header';
 
 const LiveScreen =({navigation}) =>{
@@ -19,16 +19,16 @@ const LiveScreen =({navigation}) =>{
 
                 <ContentHorizontal
                     title="PRINCIPAIS AO VIVO"
-                    onPress={()=>{navigation.navigate('Aposta', {itemID: "01"})}
+                    onPress={()=>{navigation.navigate('Bet', {itemID: "01"})}
                     }
-                    data={dataEmAlta}
+                    data={dataAoVivo}
                 />
 
                 <ContentHorizontal
                     title="MAIS AO VIVO"
-                    onPress={()=>{navigation.navigate('Aposta', {itemID: "01"})}
+                    onPress={()=>{navigation.navigate('Bet', {itemID: "01"})}
                     }
-                    data={dataEmAlta}
+                    data={dataAoVivo}
                 />
 
                 <View style={{marginHorizontal: 25, marginVertical: 15}}>
@@ -36,7 +36,7 @@ const LiveScreen =({navigation}) =>{
                         title={"Voltar"}
                         style={styles.buttonReg}
                         textStyle={styles.userLabelText}
-                        onPress={() => navigation.navigate('Home')}
+                        onPress={() => navigation.goBack()}
                     />
                 </View>
                 

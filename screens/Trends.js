@@ -19,13 +19,13 @@ const TrendsScreen =({navigation}) =>{
 
                 <ContentHorizontal
                     title={"PRINCIPAIS EM ALTA"}
-                    onPress={()=>{navigation.navigate('Aposta', {itemID: "01"})}
+                    onPress={()=>{navigation.navigate('Bet', {itemID: "01"})}
                     }
                     data={dataEmAlta}
                 />
                 <ContentHorizontal
                     title={"MAIS EM ALTA "}
-                    onPress={()=>{navigation.navigate('Aposta', {itemID: "01"})}
+                    onPress={()=>{navigation.navigate('Bet', {itemID: "01"})}
                     }
                     data={dataEmAlta}
                 />
@@ -35,7 +35,7 @@ const TrendsScreen =({navigation}) =>{
                         title={"Voltar"}
                         style={styles.buttonReg}
                         textStyle={styles.userLabelText}
-                        onPress={() => navigation.navigate('Home')}
+                        onPress={() => navigation.goBack()}
                     />
                 </View>
             </ScrollView>

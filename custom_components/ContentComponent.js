@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { Card } from "react-native-paper";
 import styles from "../styles/Styles";
@@ -22,14 +22,14 @@ export const ContentHorizontal = (props) =>{
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} overScrollMode="never">
                 {
                     data.map(objeto =>{
-                        
+
                         return (
                             <Pressable onPress={onPress}>
                                 <Card style={styles.cardContent}>
                                     <Text style={styles.titleContent}>{objeto.title}</Text>
                                     <View style={styles.rowHorizontal}>
                                         <Text>{objeto.time1}</Text>
-                                        <Text>X</Text>
+                                        <Text> X </Text>
                                         <Text>{objeto.time2}</Text>
                                     </View>                            
                                 </Card>
