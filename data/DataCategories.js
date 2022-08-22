@@ -1,27 +1,10 @@
-// constante CATEGORIAS(Array) de items da lista:
-export const CATEGORIAS = [
-    {
-        id: '001',
-        title: 'Categoria',
-    },
-    {
-        id: '002',
-        title: 'Categoria',
-    },
-    {
-        id: '003',
-        title: 'Categoria',
-    },
-    {
-        id: '004',
-        title: 'Categoria',
-    },
-    {
-        id: '005',
-        title: 'Categoria',
-    },
-    {
-        id: '006',
-        title: 'Categoria',
-    },
-]
+const axios = require('axios');
+export const CATEGORIAS = [];
+
+const resultado = axios.get('https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/categorias').then(async function(response){
+    let res = await response.data;
+    res.forEach(element => {
+        CATEGORIAS.push(element);
+    });
+})
+

@@ -9,14 +9,7 @@ import dataEmAlta from '../data/DataTrends';
 import { CATEGORIAS } from '../data/DataCategories';
 import HeaderComponent from '../custom_components/Header';
 import dataAoVivo from '../data/DataLive';
-
-// Componente Item:
-const Item = ({ title }) => (
-    <Card style={styles.cardCat}>
-        <Text>{title}</Text>
-    </Card>
-);
-
+import CategoriesComponent from '../custom_components/CategoriesComponent';
 
 const HomeScreen =({navigation}) =>{
     const [componentTitle, setComponentTitle] = React.useState('EVENTOS EM ALTA');
@@ -34,11 +27,6 @@ const HomeScreen =({navigation}) =>{
         setNav('Trends');
         setData(dataEmAlta)
     }
-    
-    // Função que renderiza items na lista:
-    const renderItem = ({ item }) => (
-        <Item title={item.title}/>
-    );
 
     return (
         <View style={styles.container}>
@@ -71,20 +59,7 @@ const HomeScreen =({navigation}) =>{
                     data={data}
                 />
 
-                <View style={styles.categories}>
-                    <View style={styles.buttonReg}>
-                        <Text style={styles.userLabelText}> CATEGORIAS </Text>
-                    </View>
-        
-                    <FlatList
-                        data={CATEGORIAS}
-                        renderItem={renderItem}
-                        keyExtractor={item => item.id}
-                        numColumns={2}
-                        style={{marginTop: 25}}
-                    />
-        
-                </View>
+                <CategoriesComponent/>
     
             </ScrollView>
 
