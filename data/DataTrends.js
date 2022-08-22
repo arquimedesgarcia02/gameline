@@ -1,22 +1,10 @@
-const dataEmAlta = [
-    {
-        id: "04",
-        title: "CS GO: CAMPEONATO",
-        time1: "INTZ",
-        time2: "C4 GAMING",
-    },
-    {
-        id: "05",
-        title: "LOL: CAMPEONATO",
-        time1: "RED CANIDS",
-        time2: "VIVO",
-    },
-    {
-        id: "06",
-        title: "LOL: CAMPEONATO",
-        time1: "Cloud",
-        time2: "Flamengo",
-    },
-]
+const axios = require('axios');
+const dataEmAlta = [];
+const result = axios.get('https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/emalta').then(async function (response) {
+    let res = await response.data;
+    res.forEach(element => {
+        dataEmAlta.push(element);
+    });
+})
 
 export default dataEmAlta;

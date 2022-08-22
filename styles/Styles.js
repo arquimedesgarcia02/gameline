@@ -253,6 +253,7 @@ const styles = StyleSheet.create({
       justifyContent: "space-between",
       alignItems: "center",
       padding: 8,
+      marginTop: 15,
     },
     cardContent:{
       backgroundColor: '#e5e5e5',
@@ -271,6 +272,10 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       justifyContent: "center",
     },
+    teamLogo: {
+      width: '40%',
+      height: 100,
+    }
     
 });
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, ScrollView, Text, View, Image} from "react-native";
 import { Card } from "react-native-paper";
 import styles from "../styles/Styles";
 import { UserModalOptions } from "./ModalButtons";
@@ -28,9 +28,15 @@ export const ContentHorizontal = (props) =>{
                                 <Card style={styles.cardContent}>
                                     <Text style={styles.titleContent}>{objeto.title}</Text>
                                     <View style={styles.rowHorizontal}>
-                                        <Text>{objeto.time1}</Text>
-                                        <Text> X </Text>
-                                        <Text>{objeto.time2}</Text>
+                                        <Image
+                                            source={{uri: objeto.time1}}
+                                            style={styles.teamLogo}
+                                        />
+                                        <Text style={{fontSize: 20}}> X </Text>
+                                        <Image
+                                            source={{uri: objeto.time2}}
+                                            style={styles.teamLogo}
+                                        />
                                     </View>                            
                                 </Card>
                             </Pressable>
