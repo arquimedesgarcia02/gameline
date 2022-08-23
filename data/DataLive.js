@@ -1,22 +1,11 @@
-const dataAoVivo = [
-    {
-        id: "01",
-        title: "CS GO: CAMPEONATO",
-        time1: "INTZ",
-        time2: "C4 GAMING",
-    },
-    {
-        id: "02",
-        title: "LOL: CBLOL",
-        time1: "RED CANIDS",
-        time2: "VIVO",
-    },
-    {
-        id: "03",
-        title: "LOL: CBLOL",
-        time1: "LOUD",
-        time2: "KABUM",
-    },
-]
+const axios = require('axios');
+const dataAoVivo = [];
+
+const resposta = axios.get('https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/aovivo').then(async function (response){
+    let res = await response.data;
+    res.forEach(element => {
+        dataAoVivo.push(element);
+    });
+})
 
 export default dataAoVivo;

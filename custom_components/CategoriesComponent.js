@@ -1,20 +1,24 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Image } from "react-native";
 import { Card } from 'react-native-paper';
 import styles from "../styles/Styles";
 import { CATEGORIAS } from "../data/DataCategories";
 
 // Componente Item:
-const Item = ({ title }) => (
+const Item = ({ title, icon}) => (
     <Card style={styles.cardCat}>
-        <Text>{title}</Text>
+        <Text style={{textAlign: "center", fontWeight: "600",}}>{title}</Text>
+        <Image
+            source={{uri: icon}}
+            style={{height: 90, width:128}}
+        />
     </Card>
 );
 
 const CategoriesComponent = () => {
     // Função que renderiza items na lista:
-    const renderItem = ({ item }) => (
-        <Item title={item.title}/>
+    const renderItem = ({ item, icon}) => (
+        <Item title={item.title} icon={item.icon}/>
     );
 
     return(

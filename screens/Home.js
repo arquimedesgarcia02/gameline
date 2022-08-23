@@ -14,18 +14,24 @@ import CategoriesComponent from '../custom_components/CategoriesComponent';
 const HomeScreen =({navigation}) =>{
     const [componentTitle, setComponentTitle] = React.useState('EVENTOS EM ALTA');
     const [nav, setNav] = React.useState('Trends');
-    const [data, setData] = React.useState(dataEmAlta)
+    const [estiloEmAlta, setEstiloEmAlta] = React.useState(styles.buttonReg);
+    const [estiloAoVivo, setEstiloAoVivo] = React.useState(styles.buttonReg);
+    const [data, setData] = React.useState(dataEmAlta);
 
     const buttonActionLive = () =>{
         setComponentTitle('EVENTOS AO VIVO');
         setNav('Live');
         setData(dataAoVivo)
+        setEstiloAoVivo(styles.buttonRegBordered)
+        setEstiloEmAlta(styles.buttonReg)
     }
 
     const buttonActionTrends = () =>{
         setComponentTitle('EVENTOS EM ALTA');
         setNav('Trends');
         setData(dataEmAlta)
+        setEstiloEmAlta(styles.buttonRegBordered)
+        setEstiloAoVivo(styles.buttonReg)
     }
 
     return (
@@ -37,14 +43,14 @@ const HomeScreen =({navigation}) =>{
                 <View style={styles.rowButtons}>
                     <UserModalOptions
                         title={"EM ALTA"}
-                        style={styles.buttonReg}
+                        style={estiloEmAlta}
                         textStyle={styles.userLabelText}
                         onPress={() => buttonActionTrends()}
                     />
         
                     <UserModalOptions
                         title={"AO VIVO"}
-                        style={styles.buttonReg}
+                        style={estiloAoVivo}
                         textStyle={styles.userLabelText}
                         onPress={() => buttonActionLive()}
                     />

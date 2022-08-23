@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, ScrollView, Text, View, Image} from "react-native";
+import { Pressable, ScrollView, Text, View, Image, Button} from "react-native";
 import { Card } from "react-native-paper";
 import styles from "../styles/Styles";
 import { UserModalOptions } from "./ModalButtons";
@@ -37,7 +37,7 @@ export const ContentHorizontal = (props) =>{
                                             source={{uri: objeto.time2}}
                                             style={styles.teamLogo}
                                         />
-                                    </View>                            
+                                    </View>
                                 </Card>
                             </Pressable>
                             
