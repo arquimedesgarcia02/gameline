@@ -1,9 +1,33 @@
 import * as React from 'react';
 import {Text,View,TextInput, Image} from 'react-native';
 import ButtonLogin from '../custom_components/ButtonLogin';
+import { logar, login } from '../data/DataUsuarios';
 import styles from '../styles/Styles';
 
 const LoginScreen =({navigation}) =>{
+    const [nome, setNome] = React.useState('');
+    const [senha, setSenha] = React.useState('');
+
+    function handleSignIn(){
+        if (nomeUsuario === "" || cpf === "" || chavePix === "" || senha === "") {
+            alert("Todos os campos devem ser preenchidos!");
+            return;
+        }
+        else if (senha !== confirmaSenha) {
+            alert("A senha não foi confirmada corretamente!")
+            return;
+        } else {
+            login();
+        }
+        
+    }
+
+    function login() {
+        if(logar(nome, senha)){
+            navigation.navigate('Home');
+        }
+    }
+
     return (
         <View style = {styles.login}>
             
@@ -20,17 +44,21 @@ const LoginScreen =({navigation}) =>{
 
             <TextInput
              style={styles.input}
+             value={nome}
+             onChangeText={setNome}
              placeholder = 'DIGITE SEU NOME DE USUARIO'
             />
             <TextInput
              style={styles.input}
              placeholder = 'DIGITE SUA SENHA'
+             value={senha}
+             onChange={setSenha}
              secureTextEntry = {true}
             />
             <ButtonLogin
                 title="CONFIRMAR"
                 color={'#10D07B'}
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => login()}
             />
 
             <View style={styles.footer}>

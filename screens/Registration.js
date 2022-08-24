@@ -1,10 +1,37 @@
-import * as React from "react" 
+import React, { useState } from "react" 
 import {Text, TextInput, View, Image} from 'react-native';
 import { Camera, CameraType } from 'expo-camera'
 import styles from "../styles/Styles";
 import ButtonReg from "../custom_components/ButtonRegistration";
+import { cadastrar } from "../data/DataUsuarios";
 
-const RegistrationScreen =({navigation, route}) =>{
+const RegistrationScreen =({navigation}) =>{
+    const [nomeUsuario, setNomeUsusario] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [chavePix, setChavePix] = useState('');
+    const [senha, setSenha] = useState('');
+    const [confirmaSenha, setConfirmaSenha] = useState('');
+
+    function handleSignIn(){
+        if (nomeUsuario === "" || cpf === "" || chavePix === "" || senha === "") {
+            alert("Todos os campos devem ser preenchidos!");
+            return;
+        }
+        else if (senha !== confirmaSenha) {
+            alert("A senha não foi confirmada corretamente!")
+            return;
+        } else {
+            confirmarCadastro();
+        }
+        
+    }
+
+    function confirmarCadastro(){
+        cadastrar(nomeUsuario, cpf, chavePix, senha);
+        alert("Cadastro feito com sucesso");
+        navigation.navigate('Login');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.registration}>
@@ -34,28 +61,38 @@ const RegistrationScreen =({navigation, route}) =>{
                 <TextInput
                     style={styles.input}
                     placeholder = 'DIGITE SEU NOME DE USUARIO'
+                    value={nomeUsuario}
+                    onChangeText={setNomeUsusario}
                 />
 
                 <TextInput
                     style={styles.input}
                     placeholder = 'DIGITE SEU CPF'
+                    value={cpf}
+                    onChangeText={setCpf}
                 />
 
                 <TextInput
                     style={styles.input}
                     placeholder = 'DIGITE A SUA CHAVE PIX'
+                    value={chavePix}
+                    onChangeText={setChavePix}
                 />             
 
                 <TextInput
                     style={styles.input}
                     placeholder = 'DIGITE SUA SENHA'
                     secureTextEntry = {true}
+                    value={senha}
+                    onChangeText={setSenha}
                 />
 
                 <TextInput
                     style={styles.input}
                     placeholder = 'DIGITE SUA SENHA NOVAMENTE'
                     secureTextEntry = {true}
+                    value={confirmaSenha}
+                    onChangeText={setConfirmaSenha}
                 />
 
                 <View style={styles.rowButtons}>
@@ -69,7 +106,7 @@ const RegistrationScreen =({navigation, route}) =>{
                         title={"CONFIRMAR"}
                         style={styles.buttonReg}
                         textStyle={styles.textButttonReg}
-                        onPress={() => navigation.navigate('Home')}
+                        onPress={()=> handleSignIn()}
                     />
                 </View>
                 
