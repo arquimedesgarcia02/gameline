@@ -13,21 +13,16 @@ const LiveScreen =({navigation}) =>{
         <View style={styles.container}>
             <HeaderComponent onPress={() => navigation.navigate('Login')}/>
             <ScrollView showsVerticalScrollIndicator={false} overScrollMode='never'>
-                
 
                 <AdComponent/>
 
                 <ContentHorizontal
                     title="PRINCIPAIS AO VIVO"
-                    onPress={()=>{navigation.navigate('Bet', {itemID: "01"})}
-                    }
                     data={dataAoVivo}
                 />
 
                 <ContentHorizontal
                     title="MAIS AO VIVO"
-                    onPress={()=>{navigation.navigate('Bet', {itemID: "01"})}
-                    }
                     data={dataAoVivo}
                 />
 

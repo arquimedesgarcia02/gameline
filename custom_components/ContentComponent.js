@@ -3,9 +3,10 @@ import { Pressable, ScrollView, Text, View, Image, Button} from "react-native";
 import { Card } from "react-native-paper";
 import styles from "../styles/Styles";
 import { UserModalOptions } from "./ModalButtons";
+import * as RootNavigation from '../screens/RootNavigation';
 
 export const ContentHorizontal = (props) =>{
-    const {title, onPress, buttonOnPress, data} = props;
+    const {title, buttonOnPress, data} = props;
     
     return(
         
@@ -24,7 +25,12 @@ export const ContentHorizontal = (props) =>{
                     data.map(objeto =>{
 
                         return (
-                            <Pressable onPress={onPress}>
+                            <Pressable onPress={() => RootNavigation.navigate('Bet', 
+                            {itemId: objeto.id,
+                            itemTitle: objeto.title,
+                            itemTime1: objeto.time1,
+                            itemTime2: objeto.time2,
+                            })}>
                                 <Card style={styles.cardContent}>
                                     <Text style={styles.titleContent}>{objeto.title}</Text>
                                     <View style={styles.rowHorizontal}>

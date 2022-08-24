@@ -59,8 +59,6 @@ const HomeScreen =({navigation}) =>{
             
                 <ContentHorizontal
                     title={componentTitle}
-                    onPress={()=>{navigation.navigate('Bet', {itemId: "01"})}
-                    }
                     buttonOnPress={()=>{navigation.navigate(nav)}}
                     data={data}
                 />

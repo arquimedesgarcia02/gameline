@@ -10,12 +10,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LiveScreen from './screens/Live';
 import TrendsScreen from './screens/Trends';
+import  {navigationRef} from './screens/RootNavigation';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator>
           
         <Stack.Screen

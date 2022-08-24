@@ -19,14 +19,10 @@ const TrendsScreen =({navigation}) =>{
 
                 <ContentHorizontal
                     title={"PRINCIPAIS EM ALTA"}
-                    onPress={()=>{navigation.navigate('Bet', {itemID: "01"})}
-                    }
                     data={dataEmAlta}
                 />
                 <ContentHorizontal
                     title={"MAIS EM ALTA "}
-                    onPress={()=>{navigation.navigate('Bet', {itemID: "01"})}
-                    }
                     data={dataEmAlta}
                 />
 
