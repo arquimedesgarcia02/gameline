@@ -1,31 +1,25 @@
 import * as React from 'react';
-import {Text,View,TextInput, Image} from 'react-native';
+import {Text, View, TextInput,Image} from 'react-native';
 import ButtonLogin from '../custom_components/ButtonLogin';
-import { logar, login } from '../data/DataUsuarios';
+import { logar } from '../data/DataUsuarios';
 import styles from '../styles/Styles';
 
 const LoginScreen =({navigation}) =>{
     const [nome, setNome] = React.useState('');
     const [senha, setSenha] = React.useState('');
 
-    function handleSignIn(){
-        if (nomeUsuario === "" || cpf === "" || chavePix === "" || senha === "") {
+    async function handleSignIn(){
+        if (nome === "" || senha === "") {
             alert("Todos os campos devem ser preenchidos!");
             return;
-        }
-        else if (senha !== confirmaSenha) {
-            alert("A senha não foi confirmada corretamente!")
+        } else if (await logar(nome, senha) === false) {
+            alert("Suas credenciais estão erradas!");
             return;
-        } else {
-            login();
-        }
-        
-    }
-
-    function login() {
-        if(logar(nome, senha)){
+        }else{
+            alert('Passou login');
             navigation.navigate('Home');
         }
+        
     }
 
     return (
@@ -52,13 +46,13 @@ const LoginScreen =({navigation}) =>{
              style={styles.input}
              placeholder = 'DIGITE SUA SENHA'
              value={senha}
-             onChange={setSenha}
+             onChangeText={setSenha}
              secureTextEntry = {true}
             />
             <ButtonLogin
                 title="CONFIRMAR"
                 color={'#10D07B'}
-                onPress={() => login()}
+                onPress={() => handleSignIn()}
             />
 
             <View style={styles.footer}>

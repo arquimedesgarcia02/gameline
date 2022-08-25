@@ -27,17 +27,22 @@ export async function cadastrar(nome, cpf, chavePix, senha) {
 
 export async function logar(nome, senha) {
     let data = await dataUsuarios;
+    let status;
+
+    console.log("Confirmação login: ")
+
     data.forEach(element => {
-        let elemento = element;
-        console.log("Elemento = "+elemento)
-        
-        if(elemento.nome == nome && elemento.senha == senha) {
-            alert("Credenciais corretas, login realizado com sucesso!")
-            return true           
-        }else{
-            alert("Credenciais corretas!")
-            return false
-        }
+      
+      if (element.nome === nome && element.senha === senha){
+        console.log(`${element.nome} ${nome} && ${element.senha} ${senha}`)
+        status = true;
+      }else{
+        console.log(`${element.nome} ${nome} && ${element.senha} ${senha}`)
+        status = false;
+      }
+
     });
+
+    return status;
 
 }
