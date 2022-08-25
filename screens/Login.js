@@ -18,6 +18,8 @@ const LoginScreen =({navigation}) =>{
         }else{
             alert('Passou login');
             navigation.navigate('Home');
+            setNome("");
+            setSenha("");
         }
         
     }

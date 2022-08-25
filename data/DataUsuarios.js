@@ -26,12 +26,13 @@ export async function cadastrar(nome, cpf, chavePix, senha) {
 }
 
 export async function logar(nome, senha) {
-    let data = await dataUsuarios;
+    let data = await axios.get('https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/usuarios');
+    let resultData = await data.data;
     let status;
 
     console.log("Confirmação login: ")
 
-    data.forEach(element => {
+    resultData.forEach(element => {
       
       if (element.nome === nome && element.senha === senha){
         console.log(`${element.nome} ${nome} && ${element.senha} ${senha}`)
