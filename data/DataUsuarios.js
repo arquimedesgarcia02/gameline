@@ -16,6 +16,7 @@ export async function cadastrar(nome, cpf, chavePix, senha) {
         cpf: cpf,
         chavepix: chavePix,
         senha: senha,
+        saldo: 0.0,
       })
       .then(function (response) {
         console.log(response.data);
@@ -23,6 +24,14 @@ export async function cadastrar(nome, cpf, chavePix, senha) {
       .catch(function (error) {
         console.error(error);
       });
+}
+
+export var usuario;
+
+function getUser(nome, saldo, chavePix) {
+    let objetoUsuario = {nome: nome, saldo: saldo, chavepix:  chavePix};
+    
+    return objetoUsuario;
 }
 
 export async function logar(nome, senha) {
@@ -33,14 +42,15 @@ export async function logar(nome, senha) {
     console.log("Confirmação login: ")
 
     resultData.forEach(element => {
-      
-      if (element.nome === nome && element.senha === senha){
+
+        if (element.nome === nome && element.senha === senha){
         console.log(`${element.nome} ${nome} && ${element.senha} ${senha}`)
+        usuario = getUser(element.nome, element.saldo, element.chavepix);
         status = true;
-      }else{
+        }else{
         console.log(`${element.nome} ${nome} && ${element.senha} ${senha}`)
         status = false;
-      }
+        }
 
     });
 

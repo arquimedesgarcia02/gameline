@@ -1,6 +1,5 @@
 import React, { useState } from "react" 
 import {Text, TextInput, View, Image} from 'react-native';
-import { Camera, CameraType } from 'expo-camera'
 import styles from "../styles/Styles";
 import ButtonReg from "../custom_components/ButtonRegistration";
 import { cadastrar } from "../data/DataUsuarios";

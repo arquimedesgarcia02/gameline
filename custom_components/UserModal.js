@@ -3,6 +3,7 @@ import { View, Text, TextInput, Pressable, Image,} from 'react-native';
 import Modal from "react-native-modal";
 import styles from "../styles/Styles";
 import { UserLabel, UserModalButton, UserModalOptions} from './ModalButtons';
+import { usuario } from '../data/DataUsuarios';
 
 const UserModal = (props) =>{
     const {modalOnPress} = props
@@ -32,8 +33,8 @@ const UserModal = (props) =>{
         <View>
             <Pressable onPress={()=> toggleModal()} style={styles.headerRow}>
                 <View style={styles.usertext}>
-                    <Text>NomeUsuario</Text>
-                    <Text>Saldo: R$1.99</Text>
+                    <Text>{usuario.nome}</Text>
+                    <Text>Saldo: R${usuario.saldo}</Text>
                 </View>
 
                 <View>
