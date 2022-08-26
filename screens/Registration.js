@@ -1,4 +1,4 @@
-import React, { useState } from "react" 
+import React, { useState } from "react";
 import {Text, TextInput, View, Image} from 'react-native';
 import styles from "../styles/Styles";
 import ButtonReg from "../custom_components/ButtonRegistration";
@@ -10,7 +10,7 @@ const RegistrationScreen =({navigation}) =>{
     const [chavePix, setChavePix] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmaSenha, setConfirmaSenha] = useState('');
-
+    
     function handleSignIn(){
         if (nomeUsuario === "" || cpf === "" || chavePix === "" || senha === "") {
             alert("Todos os campos devem ser preenchidos!");
@@ -43,17 +43,6 @@ const RegistrationScreen =({navigation}) =>{
                 </View>
             
                 <View style={styles.row}>
-                    <Image
-                        style={{width: 64, height: 64}}
-                        source={{
-                            uri: 'https://img.icons8.com/material-outlined/48/000000/camera--v2.png',
-                        }}
-                    />
-                    <ButtonReg
-                        title={"ESCOLHER FOTO DA GALERIA"}
-                        style={styles.buttonReg}
-                        textStyle={styles.textButttonReg}
-                    />
                     
                 </View>
 

@@ -2,11 +2,42 @@ import * as React from 'react';
 import {Text, View, TextInput,Image} from 'react-native';
 import ButtonLogin from '../custom_components/ButtonLogin';
 import { logar } from '../data/DataUsuarios';
+import { UserModalOptions } from "../custom_components/ModalButtons";
 import styles from '../styles/Styles';
+import * as LocalAuthentication from 'expo-local-authentication';
 
 const LoginScreen =({navigation}) =>{
     const [nome, setNome] = React.useState('');
     const [senha, setSenha] = React.useState('');
+    const [digitalComp, setDigitalComp] = React.useState(false);
+    
+    React.useEffect(() => {
+        (async ()=>{
+            const compatible = await LocalAuthentication.hasHardwareAsync();
+            setDigitalComp(compatible)
+        })();
+    });
+      
+    const handleBiometricAuth = async () =>{
+        const biometricalAv = await LocalAuthentication.hasHardwareAsync();
+
+        let supportedBiometrics;
+        if (biometricalAv) {
+            supportedBiometrics = await LocalAuthentication.supportedAuthenticationTypesAsync();
+
+            const savedBiometrics = await LocalAuthentication.isEnrolledAsync();
+
+            const biometricAuth = await LocalAuthentication.authenticateAsync({
+                promptMessage: 'registrar sua digital',
+                cancelLabel: 'cancelar',
+                disableDeviceFallback: true,
+            })
+
+            if (biometricAuth) {
+                alert('Login feito com a digital.')
+            }
+        }
+    }
 
     async function handleSignIn(){
         if (nome === "" || senha === "") {
@@ -57,12 +88,21 @@ const LoginScreen =({navigation}) =>{
                 onPress={() => handleSignIn()}
             />
 
+            <View style={{marginHorizontal: "10%", marginTop: "2%", padding: 0}}>
+                <UserModalOptions
+                    title="Login com digital"
+                    onPress={() => handleBiometricAuth()}
+                    style={styles.buttonGreen}
+                    textStyle={styles.userLabelText}
+                />
+            </View>
+
             <View style={styles.footer}>
                 <Text style={styles.footerText}>AINDA NÃO TEM UMA CONTA?</Text>
                 
                 <ButtonLogin 
                     title="CADASTRAR-SE"
-                    onPress={() => navigation.navigate('Registration')}            
+                    onPress={() => navigation.navigate('Registration')}      
                 />
 
             </View>
