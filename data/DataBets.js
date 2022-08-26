@@ -1,3 +1,5 @@
+import { usuario } from './DataUsuarios';
+
 const axios = require('axios');
 export const apostas = [];
 
@@ -84,4 +86,29 @@ export async function deposito(saldo, valor, idUsuario) {
     } else {
         alert('Erro ao depositar');
     }
+}
+
+export async function getSelected(placar1, placar2, status, id) {
+    if (status) {
+        if (placar1 > placar2) {
+        
+            const vitoria = await axios.put(`https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/apostas/${id}`, {resultado: true})
+            .then(async function (response) {
+                await deposito(usuario.saldo, 10, usuario.id)                
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+
+        }else{
+            const derrota = await axios.put(`https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/apostas/${id}`, {resultado: true})
+            .then(async function (response) {
+                await saque(usuario.saldo, 10, usuario.id)       
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+        }
+    }
+    
 }
