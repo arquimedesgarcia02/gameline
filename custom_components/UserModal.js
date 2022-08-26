@@ -33,7 +33,7 @@ const UserModal = (props) =>{
         <View>
             <Pressable onPress={()=> toggleModal()} style={styles.headerRow}>
                 <View style={styles.usertext}>
-                    <Text>{usuario.nome}</Text>
+                    <Text style={{fontSize: 14, fontWeight: 'bold'}}>{usuario.nome}</Text>
                     <Text>Saldo: R${usuario.saldo}</Text>
                 </View>
 
@@ -50,8 +50,8 @@ const UserModal = (props) =>{
             <Modal isVisible={isModalVisible}  onBackdropPress={() => setModalVisible(false)}>
                 <View style={styles.userModal}>
                     <UserLabel
-                        userName={"Usuario"}
-                        wallet={"1.50"}
+                        userName={usuario.nome}
+                        wallet={`${usuario.saldo}`}
                     />
                     <UserModalButton
                         title={"DEPOSITAR"}

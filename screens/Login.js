@@ -16,7 +16,7 @@ const LoginScreen =({navigation}) =>{
             alert("Suas credenciais estão erradas!");
             return;
         }else{
-            alert('Passou login');
+            await logar(nome, senha);
             navigation.navigate('Home');
             setNome("");
             setSenha("");

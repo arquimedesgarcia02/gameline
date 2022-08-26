@@ -30,6 +30,8 @@ export const ContentHorizontal = (props) =>{
                             itemTitle: objeto.title,
                             itemTime1: objeto.time1,
                             itemTime2: objeto.time2,
+                            placar1: Math.floor(Math.random() * 50),
+                            placar2: Math.floor(Math.random() * 50),
                             })}>
                                 <Card style={styles.cardContent}>
                                     <Text style={styles.titleContent}>{objeto.title}</Text>

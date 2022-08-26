@@ -37,23 +37,22 @@ function getUser(nome, saldo, chavePix) {
 export async function logar(nome, senha) {
     let data = await axios.get('https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/usuarios');
     let resultData = await data.data;
-    let status;
+    let status = false;
 
     console.log("Confirmação login: ")
 
     resultData.forEach(element => {
 
         if (element.nome === nome && element.senha === senha){
-        console.log(`${element.nome} ${nome} && ${element.senha} ${senha}`)
-        usuario = getUser(element.nome, element.saldo, element.chavepix);
-        status = true;
+            console.log(`true ${element.nome} ${nome} && ${element.senha} ${senha}`)
+            usuario = getUser(element.nome, element.saldo, element.chavepix);
+            status = true;
         }else{
-        console.log(`${element.nome} ${nome} && ${element.senha} ${senha}`)
-        status = false;
+            console.log(`false${element.nome} ${nome} && ${element.senha} ${senha}`);
         }
 
     });
-
+    console.log(status);
     return status;
 
 }
