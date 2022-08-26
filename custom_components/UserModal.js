@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import { View, Text, TextInput, Pressable, Image,} from 'react-native';
+import { View, Text, TextInput, Pressable, Image, ScrollView,} from 'react-native';
 import Modal from "react-native-modal";
+import { Card } from 'react-native-paper';
 import styles from "../styles/Styles";
 import { UserLabel, UserModalButton, UserModalOptions} from './ModalButtons';
 import { usuario } from '../data/DataUsuarios';
+import { apostas } from '../data/DataBets';
 
 const UserModal = (props) =>{
     const {modalOnPress} = props
@@ -165,18 +167,33 @@ const UserModal = (props) =>{
                         <Text style={styles.userLabelText}>Informações do Usuario</Text>
                     </View>
 
-                    <View style={{alignItems: 'flex-start', justifyContent:'center', marginBottom:'35%',marginHorizontal: 15}}>
-                        <Text style={styles.userLabelTextBlack}>Usuario: nome do Usuario</Text>
-                        <Text style={styles.userLabelTextBlack}>Saldo: R$ 1.50</Text>
-                        <Text style={styles.userLabelTextBlack}>Chave Pix: chavepix@pix.com</Text>
+                    <View style={{alignItems: 'flex-start', justifyContent:'center', marginHorizontal: 15}}>
+                        <Text style={styles.userLabelTextBlack}>Usuario: {usuario.nome}</Text>
+                        <Text style={styles.userLabelTextBlack}>Saldo: R$ {usuario.saldo}</Text>
+                        <Text style={styles.userLabelTextBlack}>Chave Pix: {usuario.chavepix}</Text>
                     </View>
 
-                    <UserModalOptions
-                        title={"ENCERRAR CONTA"}
-                        style={styles.buttonRed}
-                        textStyle={styles.userLabelText}
-                        onPress={()=>alert('Sua conta foi enecerrada com exito!')}
-                    />
+                    <View style={styles.userLabel}>
+                        <Text style={styles.userLabelText}>Apostas</Text>
+                    </View>
+
+                    <ScrollView showsVerticalScrollIndicator={false} overScrollMode='never'>
+                        {
+                            apostas.map(objeto =>{
+                                return(
+                                    <View style={{alignItems: 'center', marginTop: 5,}}>
+                                        <Card style={styles.cardPub}>
+                                            <Text>dados da aposta: </Text>
+                                            <Text>{objeto.horarioAposta}</Text>
+                                            <Text>{objeto.placar1}x{objeto.placar2}</Text>
+                                            <Text>{objeto.resultado ? "ganhou":"perdeu"}</Text>
+                                            <Text>{objeto.status ? "em curso": "partida finalizada"}</Text>
+                                        </Card>
+                                    </View>
+                                )
+                            })
+                        }
+                    </ScrollView>
                     
                     <UserModalOptions
                         style={styles.buttonClose}

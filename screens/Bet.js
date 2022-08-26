@@ -51,7 +51,7 @@ export default function BetScreen({route, navigation}){
                     title={"CONFIRMAR APOSTA"}
                     style={styles.buttonReg}
                     textStyle={styles.userLabelText}
-                    onPress={() => apostar(placar1, placar2, false, false)}
+                    onPress={() => apostar(placar1, placar2, true,)}
                 />
                 
                 <UserModalOptions
