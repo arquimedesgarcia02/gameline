@@ -5,7 +5,7 @@ import { Card } from 'react-native-paper';
 import styles from "../styles/Styles";
 import { UserLabel, UserModalButton, UserModalOptions} from './ModalButtons';
 import { usuario } from '../data/DataUsuarios';
-import { apostas } from '../data/DataBets';
+import { apostas, saque } from '../data/DataBets';
 
 const UserModal = (props) =>{
     const {modalOnPress} = props
@@ -14,6 +14,8 @@ const UserModal = (props) =>{
     const [depositVisible, setDepositVisible] = useState(false);
     const [withdrawVisible, setWithdrawVisible] = useState(false);
     const [accountVisible, setAccountVisible] = useState(false);
+
+    const [valorSaque, setValorSaque] = useState('');
 
     const toggleModal = () => {
         setModalVisible(!isModalVisible);
@@ -135,6 +137,9 @@ const UserModal = (props) =>{
                         <TextInput
                             style={styles.input}
                             placeholder = 'DIGITE O VALOR DO SAQUE'
+                            keyboardType={'number-pad'}
+                            value={valorSaque}
+                            onChangeText={setValorSaque}
                         />
 
                         <Text style={{fontSize: 16, fontWeight: '700'}}>O SAQUE DEVE SER MENOR QUE SEU SALDO ATUAL. SALDO: R$xx.xx</Text>
@@ -144,7 +149,7 @@ const UserModal = (props) =>{
                         style={styles.buttonReg}
                         textStyle={styles.userLabelText}
                         title={"SACAR AGORA"}
-                        onPress={()=> alert('Saque realizado com sucesso!')}
+                        onPress={()=> saque(usuario.saldo, valorSaque, usuario.id)}
                     />
 
                     <UserModalOptions

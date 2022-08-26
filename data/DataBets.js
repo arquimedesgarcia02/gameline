@@ -40,22 +40,27 @@ export async function apostar(placar1, placar2, status, resultado) {
     });
 }
 
-async function saque(saldo, valor, idUsuario) {
-    let s = await saldo;
-    
-    if (s > 0) {
-        const getSaldo = await axios.post(`https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/usuarios/${idUsuario}`, 
+export async function saque(saldo, valor, idUsuario) {
+    let v = parseFloat(valor);
+
+    console.log(saldo, v, idUsuario);
+    if (saldo > 0 && saldo > v) {
+        console.log(saldo, v, idUsuario);
+        
+        const getSaldo = await axios.put(`https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/usuarios/${idUsuario}`, 
         {
-            saldo: saldo-valor,
+            saldo: (saldo-v),
         }
         ).then(function (response) {
-            console.log(response.data);
+            alert('O saque foi realizado com sucesso!')
         })
         .catch(function (error) {
             console.error(error);
         });
 
     } else {
-        alert('Saldo insuficiente para sacar')
+        alert('Saldo insuficiente para sacar');
     }
 }
+
+
