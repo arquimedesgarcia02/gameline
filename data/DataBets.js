@@ -63,4 +63,25 @@ export async function saque(saldo, valor, idUsuario) {
     }
 }
 
+export async function deposito(saldo, valor, idUsuario) {
+    let v = parseFloat(valor);
 
+    console.log(saldo, v, idUsuario);
+    if (v > 0) {
+        console.log(saldo, v, idUsuario);
+        
+        const getSaldo = await axios.put(`https://62f42bd73b6467a8cb3c43c8.mockapi.io/api/usuarios/${idUsuario}`, 
+        {
+            saldo: (saldo+v),
+        }
+        ).then(function (response) {
+            alert('O deposito foi realizado com sucesso!')
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+
+    } else {
+        alert('Erro ao depositar');
+    }
+}

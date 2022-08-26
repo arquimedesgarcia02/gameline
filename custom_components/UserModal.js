@@ -5,7 +5,7 @@ import { Card } from 'react-native-paper';
 import styles from "../styles/Styles";
 import { UserLabel, UserModalButton, UserModalOptions} from './ModalButtons';
 import { usuario } from '../data/DataUsuarios';
-import { apostas, saque } from '../data/DataBets';
+import { apostas, deposito, saque } from '../data/DataBets';
 
 const UserModal = (props) =>{
     const {modalOnPress} = props
@@ -16,6 +16,7 @@ const UserModal = (props) =>{
     const [accountVisible, setAccountVisible] = useState(false);
 
     const [valorSaque, setValorSaque] = useState('');
+    const [valorDeposito, setValorDeposito] = useState('');
 
     const toggleModal = () => {
         setModalVisible(!isModalVisible);
@@ -105,13 +106,16 @@ const UserModal = (props) =>{
                         <TextInput
                             style={styles.input}
                             placeholder = 'DIGITE O VALOR DO DEPOSITO'
+                            value={valorDeposito}
+                            onChangeText={setValorDeposito}
+                            keyboardType={'numeric'}
                         />
                     </View>
 
                     <UserModalOptions
                         textStyle={styles.userLabelText}
                         style={styles.buttonReg}
-                        onPress={() => alert('Deposito Confirmado!')}
+                        onPress={() => deposito(usuario.saldo, valorDeposito, usuario.id)}
                         title={"CONFRIMAR"}
                     />
                     
