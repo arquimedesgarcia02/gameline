@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Text, View, TextInput,Image} from 'react-native';
 import ButtonLogin from '../custom_components/ButtonLogin';
-import { logar } from '../data/DataUsuarios';
+import { logar, usuario, usuarioDigital } from '../data/DataUsuarios';
 import { UserModalOptions } from "../custom_components/ModalButtons";
 import styles from '../styles/Styles';
 import * as LocalAuthentication from 'expo-local-authentication';
@@ -34,7 +34,11 @@ const LoginScreen =({navigation}) =>{
             })
 
             if (biometricAuth) {
-                alert('Login feito com a digital.')
+                alert('Login feito com a digital.');
+                logar(usuarioDigital[0], usuarioDigital[1]);
+                navigation.navigate('Home');
+            }else{
+                alert('Erro na digital.');
             }
         }
     }

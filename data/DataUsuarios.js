@@ -27,6 +27,7 @@ export async function cadastrar(nome, cpf, chavePix, senha) {
 }
 
 export var usuario;
+export var usuarioDigital;
 
 function getUser(nome, saldo, chavePix, id) {
     let objetoUsuario = {nome: nome, saldo: saldo, chavepix:  chavePix, id: id};
@@ -46,6 +47,7 @@ export async function logar(nome, senha) {
         if (element.nome === nome && element.senha === senha){
             console.log(`true ${element.nome} ${nome} && ${element.senha} ${senha}`)
             usuario = getUser(element.nome, element.saldo, element.chavepix, element.id);
+            usuarioDigital = [element.nome, element.senha];
             status = true;
         }else{
             console.log(`false${element.nome} ${nome} && ${element.senha} ${senha}`);
